@@ -1,4 +1,4 @@
-# Text to Action: Mapping Multi-modality Instructions to Robotic Actions with LLMs 
+# Text to Action: Mapping text instructions along with Multi-modality data into Robotic Actions using LLMs
 
 ![framework](images/instruct2act_framework.png)
 
@@ -15,15 +15,13 @@ Large Language Model**](https://arxiv.org/pdf/2305.11176.pdf)
   - [Acknowledgement](#acknowledgement)
  
 
-## Supported Modules
+## Supported Modules/Tasks
 
-Currently, we support the following modules:
+Currently, the following tasks are supported:
 
 ![modules](images/modules_api.png)
 
 Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can download the ckpts from [SAM](https://github.com/facebookresearch/segment-anything#model-checkpoints) and [OpenCLIP](https://github.com/mlfoundations/open_clip). Then set the path in the file 'engine_robotic.py'.
-
-You can also add your personlized modules in 'engine_robotic.py', and add the API definition in the prompt files.
 
 ## How to run
 
@@ -38,29 +36,22 @@ You can also add your personlized modules in 'engine_robotic.py', and add the AP
 
 ## Prompts Setting
 
-In Instruct2Act, we implement two types of prompts, i.e., **task-specific** and **task-agnostic** prompts. The task-specific prompts are designed for specific tasks which is in the VISPROG style, and the task-agnostic prompts are designed for general purpose, and it is in ViperGPT plus VISPROG style. We provide more details in the our paper. And you can change the setting in the file *visual_programming_prompt/robotic_exec_generation.py*. For very specific tasks like robotic manipulations where you know the flow clearly, we suggest to use the task-specific prompts. For general purpose, we suggest to use the task-agnostic prompts. These two prompts are stored in *visual_programm_prompt.py* and *full_prompt.ini* respectively.
-
-Besides the language prompts, we also provide the pointing-language enhanced prompts where cursor click will be used to select the target objects. You can see the details with funcation *SAM()* in *engine_robotic.py*.  
-
-We provide two code generation mode for robotic manipulation tasks, i.e., **offline** and **online** mode. The codes with offline mode are generated in advance and summarized with expert knowledge, and this type is used for the demo and quick-trail usage. The online mode are generated on the fly, and this type is used for the general purpose.
+There are two code generation modes for robotic manipulation tasks, i.e., **offline** and **online** modes. The codes in the offline mode are generated in advance, for demo purpose. The code in online mode is generated on the fly, using OpenAI's API.
 
 ## Evaluation Tasks
 
-We select six representative meta tasks from VIMABench (17 tasks in total) to evaluate the proposed methods in the tabletop manipulation domain, as shown in below. To run the evaluation, please follow the instructions in the [VIMABench](https://github.com/vimalabs/VimaBench).
+I selected only 4 representative meta tasks from VIMABench (17 tasks in total) to evaluate the proposed methods in the tabletop manipulation domain, as shown below.
 
 | Task | Instruction | Visualization |
 |:---:|:---:|:---:|
 | Visual Manipulation | Put the  polka dot block  into the  green container. | ![task01](images/tasks_gif/task01.gif) |
-| Scene Understanding | Put the  blue paisley  object in  another given scene image  into the  green object. | ![task01](images/tasks_gif/task02.gif) |
 | Rotation | Rotate the  letter-M 30  degrees | ![task01](images/tasks_gif/task03.gif) |
-| Rearrange | Rearrange to the target scene. | ![task01](images/tasks_gif/task04.gif) |
-| Rearrange then restore | Rearrange objects to target scene and then restore. | ![task01](images/tasks_gif/task05.gif) |
 | Pick in order then restore | Put the cyan block into the yellow square then into the white-black square. Finally restore it into its original container. | ![task01](images/tasks_gif/task17.gif) |
+| Scene Understanding | Put the  blue paisley  object in  another given scene image  into the  green object. | ![task01](images/tasks_gif/task02.gif) |
 
 ## Notes
 
-1. To speed up the SAM inference progress, we add **cuda** device option in **function build_sam()**, you should modify it accordingly in the source code and then recompile the package.
-
+1. To speed up the SAM inference progress, I added a custom **cuda** device option in **build_sam()** function of facebook's segment-anything module.
 2. When using ChatGPT for generation, you need a paid token with API access to GPT 3.5 turbo.
 
 ## Acknowledgement
