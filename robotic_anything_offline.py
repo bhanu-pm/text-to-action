@@ -141,7 +141,7 @@ def main(cfg, logger):
         BOUNDS = meta_info["action_bounds"]
         exec_codes = exec_steps_off(cfg.task, **task_setting)
         
-        if task_id >= 150:
+        if task_id >= 8:
             break
         done = False
         elapsed_steps = 0
@@ -223,8 +223,10 @@ def main(cfg, logger):
                     "failure": False,
                 }
             print(
-                f"task id: {task_info['task_id']} success: {task_info['success']}"
+                f"TASK ID: {task_info['task_id']} \t Success: {task_info['success']}"
             )
+            if task_id == 8:
+                time.sleep(5)
             if cfg.reuse and task_id - 1 < len(all_infos):
                 all_infos[task_id - 1] = task_info
 
@@ -264,9 +266,7 @@ if __name__ == "__main__":
         "visual_manipulation",
         "rotate",
         "pick_in_order_then_restore",
-        "rearrange_then_restore",
-        "rearrange",
-        "scene_understanding",
+        "scene_understanding"
     ]
     partitions = [
         # "placement_generalization",
