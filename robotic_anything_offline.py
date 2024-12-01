@@ -107,35 +107,36 @@ def main(cfg, logger):
             prompt, prompt_assets, single_model=single_model_flag, task=cfg.task
         )
         task_id += 1
-        logger.info(f"==================Task {task_id}=========================")
-        logger.info(whole_task)
+        print(f"\n\n\n==================Task {task_id}=========================\n")
+        # print(whole_task)
         if not single_model_flag:
             # get full task description for debug
             whole_task_debug, _, _ = prepare_prompt(
                 prompt, prompt_assets, single_model=True, task=cfg.task
             )
-            logger.info(f"The initial intention {whole_task_debug}")
+            print(f"TASK: {whole_task_debug}")
+            time.sleep(5)
 
         if cfg.reuse and already_executed(all_infos, task_id, whole_task):
-            logger.info("Already executed, skip")
+            print("Already executed, skip")
             continue
         ############################################# Code block for saving demo
-        a = input("Press s to save, c to continue, q to quit:")
-        if a == "q":
-            break
-        elif a == "s":
-            # save multi-modal data with the task description
-            for ele in templates:
-                img = np.asarray(templates[ele])
-                img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-                img = cv2.resize(img, (1024, 1024))
-                img_name = str(task_id) + whole_task_debug + "_" + ele + ".png"
-                img_path = os.path.join(result_folder, "single_obj")
-                if not os.path.exists(img_path):
-                    os.makedirs(img_path)
-                cv2.imwrite(os.path.join(img_path, img_name), img)
-        elif a == "c":
-            continue # skip
+        # a = input("Press s to save, c to continue, q to quit:")
+        # if a == "q":
+        #     break
+        # elif a == "s":
+        #     # save multi-modal data with the task description
+        #     for ele in templates:
+        #         img = np.asarray(templates[ele])
+        #         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+        #         img = cv2.resize(img, (1024, 1024))
+        #         img_name = str(task_id) + whole_task_debug + "_" + ele + ".png"
+        #         img_path = os.path.join(result_folder, "single_obj")
+        #         if not os.path.exists(img_path):
+        #             os.makedirs(img_path)
+        #         cv2.imwrite(os.path.join(img_path, img_name), img)
+        # elif a == "c":
+        #     continue # skip
         ########################################################################################################
         BOUNDS = meta_info["action_bounds"]
         exec_codes = exec_steps_off(cfg.task, **task_setting)
@@ -221,7 +222,7 @@ def main(cfg, logger):
                     "success": False,
                     "failure": False,
                 }
-            logger.info(
+            print(
                 f"task id: {task_info['task_id']} success: {task_info['success']}"
             )
             if cfg.reuse and task_id - 1 < len(all_infos):

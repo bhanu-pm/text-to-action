@@ -35,8 +35,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ########################################### Update the path to the sam checkpoint ####################################
 print("Loading SAM...")
 mask_generator = SamAutomaticMaskGenerator(
-    build_sam(checkpoint="/scratch/bmopidev/project-547/sam_vit_h_4b8939.pth")#, device=device)
+    build_sam(checkpoint="/scratch/bmopidev/project-547/sam_vit_h_4b8939.pth", device=device)
 )
+# mask_generator.to(device) #
 
 ########################################### Update the path to the sam checkpoint ####################################
 sam_pred_with_click = False
@@ -47,8 +48,9 @@ sam_idx = 2  # default to use the sam_vit_h
 if not sam_pred_with_click:
     mask_generator = SamAutomaticMaskGenerator(
         build_sam_func[sam_idx](
-            checkpoint=os.path.join(sam_path, sam_model[sam_idx])) #, device=device)
+            checkpoint=os.path.join(sam_path, sam_model[sam_idx]), device=device)
     )
+    # mask_generator.to(device) #
 else:
     sam = sam_model_registry["default"](
         checkpoint=os.path.join(sam_path, sam_model[sam_idx])
