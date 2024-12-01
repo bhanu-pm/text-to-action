@@ -14,12 +14,6 @@ Large Language Model**](https://arxiv.org/pdf/2305.11176.pdf)
   - [Notes](#notes)
   - [Acknowledgement](#acknowledgement)
  
-## Updates:
-
-1. Real-world demo videos can be found on [YouTube](https://www.youtube.com/playlist?list=PLfh183PHOgz_ZYfcUrkZpf1Dri4cN5r2w)
-2. We are thrilled that one industrial company (Intewell with Intel) used our I2A to do the flexible manipulation task, more demos are on the way! Stay Tuned. The Video could be found in [Bilibili](https://www.bilibili.com/video/BV12x4y127DK/?vd_source=46bd368e7db8357d25fc181749f07c57).
-3. [2024-03-19] We are happy to announce the updated version: [ManipVQA](https://github.com/SiyuanHuang95/ManipVQA). Unlike I2A, ManipVQA focuses more on affordance and physical concept reasoning! Ckpts are released!
-4. [2024-06] We further extend the 2D version ManipVQA into 3D Articulated one, named A3VLM. Codes, Ckpts and Dataset can be found at [A3VLM](https://github.com/changhaonan/A3VLM).
 
 ## Supported Modules
 
@@ -67,22 +61,12 @@ We select six representative meta tasks from VIMABench (17 tasks in total) to ev
 
 1. To speed up the SAM inference progress, we add **cuda** device option in **function build_sam()**, you should modify it accordingly in the source code and then recompile the package.
 
-2. During evaluation, we set the "hide_arm=True" and close the debug_window. If you want to visualize the arm movement, please set them correctly.
-
-3. The orignal movement in VIMABench is quite quick, if you want to slow down the movement, please add some lines like *sleep()* in VIMABench.
-
-4. When use ChatGPT for generation, you need to mange some network stuff. Also, we found that when the network situation is not ideal, sometimes the generated codes are in bad quality (incomplete or too short).
+2. When using ChatGPT for generation, you need a paid token with API access to GPT 3.5 turbo.
 
 ## Acknowledgement
 
-We would like to thank the authors of the following great projects, this project is built upon these great open-sourced projects.
-
+I would like to thank the authors of the following great projects, this project is built upon these great open-sourced projects.
+- [Instruct2Act](https://github.com/OpenGVLab/Instruct2Act)
 - [VIMABench](https://github.com/vimalabs/VimaBench)
 - [OpenCLIP](https://github.com/mlfoundations/open_clip)
 - [SAM](https://github.com/facebookresearch/segment-anything#model-checkpoints)
-
-We are also inspired by the following projects:
-
-- [Viper](https://github.com/cvlab-columbia/viper)
-- [TaskMatrix](https://github.com/microsoft/TaskMatrix)
-- [visprog](https://github.com/allenai/visprog)
