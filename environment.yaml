@@ -155,9 +155,6 @@ dependencies:
     - timm==0.6.12
     - tokenizers==0.13.2
     - tomli==2.0.1
-    - torch==1.12.1+cu113
-    - torchaudio==0.12.1+cu113
-    - torchvision==0.13.1+cu113
     - tornado==6.2
     - tqdm==4.65.0
     - traitlets==5.9.0
@@ -165,10 +162,13 @@ dependencies:
     - transforms3d==0.4.1
     - typing-extensions==4.5.0
     - urllib3==1.26.15
-    - vima==0.1
     - wcwidth==0.2.6
     - werkzeug==2.2.3
     - widgetsnbextension==4.0.5
     - yarl==1.8.2
     - zipp==3.15.0
+    # - torch==1.12.1+cu113
+    # - torchvision==0.13.1+cu113
+    # - torchaudio==0.12.1+cu113
+    # - vima==0.1
 prefix: /home/siyuan/anaconda3/envs/vima
