@@ -23,8 +23,12 @@ Currently, the following tasks are supported:
 
 Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can download the ckpts from [SAM](https://github.com/facebookresearch/segment-anything#model-checkpoints) and [OpenCLIP](https://github.com/mlfoundations/open_clip). Then set the path in the file 'engine_robotic.py'.
 
-## How to run
 
+## Installation Instructions
+1. Create a new conda environment
+   ``` conda create -n vima python=3.9.16 ```
+   ``` conda activate vima ```
+2. ######################################################################################################################################
 1. Install the required packages with the provided *environment.yaml*
     - If you meet any install issue, you can take a look at [Issue](https://github.com/OpenGVLab/Instruct2Act/issues/6). Thanks for @[euminds](https://github.com/euminds).
 
