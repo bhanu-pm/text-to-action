@@ -90,15 +90,15 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
    ```
    cd ..
    ```
-  ######################################################################################################################################
-1. Install the required packages with the provided *environment.yaml*
-    - If you meet any install issue, you can take a look at [Issue](https://github.com/OpenGVLab/Instruct2Act/issues/6). Thanks for @[euminds](https://github.com/euminds).
 
-2. Install the VIMABench with [VIMABench](https://github.com/vimalabs/VimaBench).
+## How to Run
+1. Get your openai api key from the following link [API key](https://platform.openai.com/api-keys)
+2. Paste the api key 
+3. Install the VIMABench with [VIMABench](https://github.com/vimalabs/VimaBench).
 
-3. Change the OpenAI API-key in *visual_programming_prompt/robotic_exec_generation.py*
+4. Change the OpenAI API-key in *visual_programming_prompt/robotic_exec_generation.py*
 
-4. run the *robotic_anything_gpt_online.py*.
+5. run the *robotic_anything_gpt_online.py*.
 
 ## Prompts Setting
 
