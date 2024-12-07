@@ -32,21 +32,44 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
 2. Install dependencies into a conda environment
    ```
    cd text-to-action
+   ```
+   ```
    conda env create -f environment.yaml
    ```
 4. Install torch
    ```
    conda activate project-10
+   ```
+   ```
    pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
    ```
-6. Install requirements from requirements.txt file
+5. Install requirements from requirements.txt file
    ```
    pip install -r requirements.txt
    ```
-8. Install vimabench
-9. Install segment-anything
-10. Install open-clip
-11. Install additional dependencies
+6. Install vimabench
+   ```
+   cd ..
+   ```
+   ```
+   git clone https://github.com/vimalabs/VimaBench VIMABench
+   ```
+   ```
+   cd VIMABench
+   ```
+   ```
+   pip install -e .
+   ```
+    
+7. Install segment-anything model from my fork of the facebook's repository. I made some functionality upgrades to give it the ability to run on nvidia GPU if it is present on the device.
+   ```
+   cd ..
+   ```
+   ```
+   git clone 
+9.  
+13. Install open-clip
+14. Install additional dependencies
   
 1. Create a new conda environment
    ``` conda create -n vima python=3.9.16 ```
