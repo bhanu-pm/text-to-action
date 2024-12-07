@@ -66,15 +66,31 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
    cd ..
    ```
    ```
-   git clone 
-9.  
-13. Install open-clip
-14. Install additional dependencies
-  
-1. Create a new conda environment
-   ``` conda create -n vima python=3.9.16 ```
-   ``` conda activate vima ```
-2. ######################################################################################################################################
+   git clone https://github.com/bhanu-pm/segment-anything.git SAM
+   ```
+   ```
+   cd SAM
+   ```
+   ```
+   pip install -e .
+   ```
+8. Install Open-clip
+   ```
+   cd ..
+   ```
+   ```
+   git clone https://github.com/mlfoundations/open_clip.git open-clip
+   ```
+   ```
+   cd open-clip
+   ```
+   ```
+   pip install -e .
+   ```
+   ```
+   cd ..
+   ```
+  ######################################################################################################################################
 1. Install the required packages with the provided *environment.yaml*
     - If you meet any install issue, you can take a look at [Issue](https://github.com/OpenGVLab/Instruct2Act/issues/6). Thanks for @[euminds](https://github.com/euminds).
 
