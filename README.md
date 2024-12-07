@@ -7,7 +7,8 @@ Large Language Model**](https://arxiv.org/pdf/2305.11176.pdf)
 > Siyuan Huang, Zhengkai Jiang, Hao Dong, Yu Qiao, Peng Gao, Hongsheng Li
 
 - [Instruct2Act: Mapping Multi-modality Instructions to Robotic Actions with Large Language Model](#instruct2act-mapping-multi-modality-instructions-to-robotic-actions-with-large-language-model)
-  - [Supported Modules](#supported-modules)
+  - [Supported Modules](#supported-modules/tasks)
+  - [Installation Instructions](#installation-instructions)
   - [How to run](#how-to-run)
   - [Prompts Setting](#prompts-setting)
   - [Evaluation Tasks](#evaluation-tasks)
@@ -25,6 +26,28 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
 
 
 ## Installation Instructions
+   These instructions were tested on an Ubuntu os with conda package manager
+1. Clone this repository or download and extract the zip file to a folder named 'text-to-action'
+   ``` git clone https://github.com/bhanu-pm/text-to-action.git text-to-action ```
+2. Install dependencies into a conda environment
+   ```
+   cd text-to-action
+   conda env create -f environment.yaml
+   ```
+4. Install torch
+   ```
+   conda activate project-10
+   pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+   ```
+6. Install requirements from requirements.txt file
+   ```
+   pip install -r requirements.txt
+   ```
+8. Install vimabench
+9. Install segment-anything
+10. Install open-clip
+11. Install additional dependencies
+  
 1. Create a new conda environment
    ``` conda create -n vima python=3.9.16 ```
    ``` conda activate vima ```
