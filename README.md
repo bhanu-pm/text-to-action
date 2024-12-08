@@ -92,13 +92,22 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
    ```
 
 ## How to Run
-1. Get your openai api key from the following link [API key](https://platform.openai.com/api-keys)
-2. Paste the api key 
-3. Install the VIMABench with [VIMABench](https://github.com/vimalabs/VimaBench).
-
-4. Change the OpenAI API-key in *visual_programming_prompt/robotic_exec_generation.py*
-
-5. run the *robotic_anything_gpt_online.py*.
+1. Get your openai api key from the following link [API key](https://platform.openai.com/api-keys).
+2. Paste the api key in the .env file.
+3. Download the open_clip_pytorch_model.bin file from the following link [OpenCLIP](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/blob/main/open_clip_pytorch_model.bin).
+4. Download the sam_vit_h_4b8939.pth model file from the following link [SAM](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth).
+5. Paste both of these downloaded files into the \text-to-action project folder.
+6. run the *robotic_anything_offline.py* file in terminal after activating the conda environment.
+   ```
+   conda activate project-10
+   ```
+   Use one of the following commmands to run the file
+   ```
+   python3 robotic_anything_offline.py
+   ```
+   ```
+   python robotic_anything_offline.py
+   ```
 
 ## Prompts Setting
 
