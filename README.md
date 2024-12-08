@@ -93,11 +93,11 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
 
 ## How to Run
 1. Get your openai api key from the following link [API key](https://platform.openai.com/api-keys).
-2. Paste the api key in the .env file.
+2. Paste the api key in the /text-to-action/.env file.
 3. Download the open_clip_pytorch_model.bin file from the following link [OpenCLIP](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/blob/main/open_clip_pytorch_model.bin).
 4. Download the sam_vit_h_4b8939.pth model file from the following link [SAM](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth).
-5. Paste both of these downloaded files into the \text-to-action project folder.
-6. run the *robotic_anything_offline.py* file in terminal after activating the conda environment.
+5. Paste both of these downloaded files into the /text-to-action project folder.
+6. run the *robotic_anything_offline.py* file in terminal after activating the conda environment and navigating into the /text-to-action folder.
    ```
    conda activate project-10
    ```
@@ -108,6 +108,7 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
    ```
    python robotic_anything_offline.py
    ```
+7. If you encounter any memory errors or if the process is killed without running the robotic arm on the tasks. Uncomment the line 35 ```sam_device = "cpu"``` in the *engine_robotic.py* file
 
 ## Prompts Setting
 
