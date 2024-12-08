@@ -28,8 +28,10 @@ Correspondingly, please prepare the SAM and CLIP model ckpts in advance. You can
 ## Installation Instructions
    These instructions were tested on an Ubuntu os with conda package manager
 1. Clone this repository or download and extract the zip file to a folder named 'text-to-action'
-   ``` git clone https://github.com/bhanu-pm/text-to-action.git text-to-action ```
-2. Install dependencies into a conda environment
+   ```
+   git clone https://github.com/bhanu-pm/text-to-action.git text-to-action
+   ```
+3. Install dependencies into a conda environment
    ```
    cd text-to-action
    ```
