@@ -6,7 +6,7 @@
 Large Language Model**](https://arxiv.org/pdf/2305.11176.pdf)
 > Siyuan Huang, Zhengkai Jiang, Hao Dong, Yu Qiao, Peng Gao, Hongsheng Li
 
-- [Instruct2Act: Mapping Multi-modality Instructions to Robotic Actions with Large Language Model](#instruct2act-mapping-multi-modality-instructions-to-robotic-actions-with-large-language-model)
+- [Text to Action]()
   - [Supported Modules](#supported-modules/tasks)
   - [Installation Instructions](#installation-instructions)
   - [How to run](#how-to-run)
