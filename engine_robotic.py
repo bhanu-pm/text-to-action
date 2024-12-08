@@ -31,11 +31,13 @@ from scipy.optimize import linear_sum_assignment
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+sam_device = device
+# sam_device = "cpu"
 
 ########################################### Update the path to the sam checkpoint ####################################
 print("Loading SAM...")
 mask_generator = SamAutomaticMaskGenerator(
-    build_sam(checkpoint="sam_vit_h_4b8939.pth", device=device)
+    build_sam(checkpoint="sam_vit_h_4b8939.pth", device=sam_device)
 )
 # mask_generator.to(device) #
 
@@ -48,14 +50,14 @@ sam_idx = 2  # default to use the sam_vit_h
 if not sam_pred_with_click:
     mask_generator = SamAutomaticMaskGenerator(
         build_sam_func[sam_idx](
-            checkpoint=os.path.join(sam_path, sam_model[sam_idx]), device=device)
+            checkpoint=os.path.join(sam_path, sam_model[sam_idx]), device=sam_device)
     )
     # mask_generator.to(device) #
 else:
     sam = sam_model_registry["default"](
         checkpoint=os.path.join(sam_path, sam_model[sam_idx])
     )
-    sam.to(device=device)
+    sam.to(device=sam_device)
     mask_generator = SamPredictor(sam)
 
 engine = "openclip"  # "openclip" or "clip"
