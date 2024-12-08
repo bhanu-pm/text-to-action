@@ -35,13 +35,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ########################################### Update the path to the sam checkpoint ####################################
 print("Loading SAM...")
 mask_generator = SamAutomaticMaskGenerator(
-    build_sam(checkpoint="/scratch/bmopidev/project-547/sam_vit_h_4b8939.pth", device=device)
+    build_sam(checkpoint="sam_vit_h_4b8939.pth", device=device)
 )
 # mask_generator.to(device) #
 
 ########################################### Update the path to the sam checkpoint ####################################
 sam_pred_with_click = False
-sam_path = "/scratch/bmopidev/project-547/"
+sam_path = ""
 sam_model = ["sam_vit_b_01ec64.pth", "sam_vit_l_0b3195.pth", "sam_vit_h_4b8939.pth"]
 build_sam_func = [build_sam_vit_b, build_sam_vit_l, build_sam_vit_h]
 sam_idx = 2  # default to use the sam_vit_h
@@ -70,7 +70,7 @@ elif engine == "openclip":
     )
 
     ################################################ Update the path to the openclip ################################
-    open_clip_path = "/scratch/bmopidev/project-547"
+    open_clip_path = ""
     model_cards = {
         "ViT-B-16": "ViT-B-16_openai.pt",
         "ViT-B-32": "ViT-B-32_openai.pt",
@@ -92,7 +92,7 @@ elif engine == "openclip":
         device=device,
         pretrained=os.path.join(open_clip_path, model_cards[models[clip_index]]),
     )
-    # tokenizer = open_clip.get_tokenizer("/scratch/bmopidev/project-547/open_clip_model_all/tokenizer.json", direct_load=True)
+
     tokenizer = open_clip.get_tokenizer("ViT-H-14")
 
 def convery_yaw_to_quaternion(yaw, degrees=True):

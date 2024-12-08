@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# model weights
+open_clip_pytorch_model.bin
+sam_vit_h_4b8939.pth
+
 # Distribution / packaging
 .Python
 build/
